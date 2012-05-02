@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ComplaintMgmt</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= link_to "Clients", clients_path %>
+    <%= link_to "Doctors", doctors_path %>
+    <%= link_to "Issues", issues_path %>
+    <%= yield %>
+
+  </body>
+</html>

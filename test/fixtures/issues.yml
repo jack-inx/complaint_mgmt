@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  issue_type: MyString
+  description: MyText
+  status: MyString
+  substantiated: false
+  resolution: MyString
+
+two:
+  issue_type: MyString
+  description: MyText
+  status: MyString
+  substantiated: false
+  resolution: MyString

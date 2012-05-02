@@ -1,0 +1,8 @@
+<p>
+  <b>Notes:</b> <br />
+  <% @notes.each do |note| %>
+    <%= note.content %>
+    <%= note.created_at %>
+    <br/>
+  <% end %>
+</p>

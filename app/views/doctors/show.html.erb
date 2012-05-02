@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @doctor.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @doctor.last_name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @doctor.address %>
+</p>
+
+<div id="note_listing">
+  <%= render :partial => "notes/notes" %>
+</div>
+<%= render :partial => "notes/form" %>
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%= link_to 'Back', doctors_path %>

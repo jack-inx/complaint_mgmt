@@ -1,0 +1,41 @@
+<%= form_for "search", :url => search_issue_path, :remote => true do |f| %>
+  <%= select_tag "client_id", options_from_collection_for_select(@clients, :id, :name), :prompt => "--Select Client" %>
+  <%= select_tag "doctor_id", options_from_collection_for_select(@doctors, :id, :first_name), :prompt => "--Select Doctor" %>
+  <%= submit_tag "Search Issues" %>
+<% end %>
+
+<table border="1">
+  <% if @issues.count > 0 %>
+    <tr>
+      <th>Issue type</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Substantiated</th>
+      <th>Resolution</th>
+      <th>Client</th>
+      <th>Doctor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% @issues.each do |issue| %>
+      <tr>
+        <td><%= issue.issue_type %></td>
+        <td><%= issue.description %></td>
+        <td><%= issue.status %></td>
+        <td><%= issue.substantiated %></td>
+        <td><%= issue.resolution %></td>
+        <td><% if not issue.client.nil? %><%= issue.client.name%><% else %><%= "-" %><% end %></td>
+        <td><% if not issue.doctor.nil? %><%= issue.doctor.first_name %><% else %><%= "-" %><% end %></td>
+        <td><%= link_to 'Show', issue %></td>
+        <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
+        <td><%= link_to 'Destroy', issue, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      No Issues found :)
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,44 @@
+<%= form_for(@issue) do |f| %>
+  <% if @issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
+
+      <ul>
+        <% @issue.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label "Client" %><br />
+    <%= f.select "client_id", options_from_collection_for_select(@clients, :id, :name), :prompt => "--Select Client" %>
+  </div>
+  <div class="field">
+    <%= f.label "Doctor" %><br />
+    <%= f.select "doctor_id", options_from_collection_for_select(@doctors, :id, :first_name), :prompt => "--Select Doctor" %>
+  </div>
+  <div class="field">
+    <%= f.label :issue_type %><br />
+    <%= f.select :issue_type, Issue::ISSUE_TYPE %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :cols => "30", :rows => "5" %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, Issue::STATUS %>
+  </div>
+  <div class="field">
+    <%= f.label :substantiated %><br />
+    <%= f.check_box :substantiated %>
+  </div>
+  <div class="field">
+    <%= f.label :resolution %><br />
+    <%= f.text_field :resolution %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

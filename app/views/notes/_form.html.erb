@@ -1,0 +1,6 @@
+<%= form_for Note.new, :url => notes_path, :remote => true do |f| %>
+  <%= f.text_area :content, :cols => "40",  :rows => "5" %><br/>
+  <%= f.hidden_field :resource_id, :value => @resource.id %>
+  <%= hidden_field_tag "request", "from", :value => params[:controller] %>
+  <%= f.submit "Add Note" %>
+<% end %>

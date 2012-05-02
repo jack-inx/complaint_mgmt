@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Issue type:</b>
+  <%= @issue.issue_type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @issue.description %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @issue.status %>
+</p>
+
+<p>
+  <b>Substantiated:</b>
+  <%= @issue.substantiated %>
+</p>
+
+<p>
+  <b>Resolution:</b>
+  <%= @issue.resolution %>
+</p>
+
+<div id="note_listing">
+  <%= render :partial => "notes/notes" %>
+</div>
+<%= render :partial => "notes/form" %>
+
+<%= link_to 'Edit', edit_issue_path(@issue) %> |
+<%= link_to 'Back', issues_path %>
